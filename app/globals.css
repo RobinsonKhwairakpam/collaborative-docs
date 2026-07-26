@@ -130,7 +130,7 @@
   }
 
   .share-input {
-    @apply h-11 flex-1 border border-pink-200 rounded-lg bg-white text-slate-800 focus-visible:ring-2 focus-visible:ring-pink-500 shadow-sm !important;
+    @apply h-11 flex-1 border border-pink-200 rounded-lg bg-white text-slate-800 focus:ring-0 shadow-sm !important;
   }
 
   .remove-btn {
@@ -160,7 +160,7 @@
 
   /* ======================== Home Page */
   .home-container {
-    @apply relative flex min-h-screen w-full flex-col items-center gap-5 sm:gap-10 bg-slate-50;
+    @apply relative flex min-h-screen w-full flex-col items-center gap-4 bg-slate-50;
   }
 
   .document-ul {

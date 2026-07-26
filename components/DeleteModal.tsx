@@ -64,7 +64,7 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
         </DialogHeader>
 
         <DialogFooter className="mt-5 gap-3">
-          <DialogClose asChild className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium border border-slate-200 shadow-sm">
+          <DialogClose asChild className="w-full flex items-center justify-center cursor-pointer bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium border border-slate-200 shadow-sm">
             <span>Cancel</span>
           </DialogClose>
 
@@ -76,11 +76,11 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
           >
             {loading ? (
               <>
-                <Image 
-                  src="/assets/icons/loader.svg" 
-                  alt="loading" 
-                  width={16} 
-                  height={16} 
+                <Image
+                  src="/assets/icons/loader.svg"
+                  alt="loading"
+                  width={16}
+                  height={16}
                   className="animate-spin"
                 />
                 <span>Deleting...</span>

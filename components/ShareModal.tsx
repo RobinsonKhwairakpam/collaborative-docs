@@ -33,10 +33,10 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
     setLoading(true);
 
     try {
-      await updateDocumentAccess({ 
-        roomId, 
-        email, 
-        userType: userType as UserType, 
+      await updateDocumentAccess({
+        roomId,
+        email,
+        userType: userType as UserType,
         updatedBy: user.info,
       });
       setEmail('');
@@ -73,15 +73,15 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
           Email address
         </Label>
         <div className="flex items-center gap-3">
-          <div className="flex flex-1 rounded-lg border border-pink-200 bg-white overflow-hidden shadow-sm">
-            <Input 
+          <div className="flex flex-1 rounded-lg gap-2 bg-white overflow-hidden shadow-sm">
+            <Input
               id="email"
               placeholder="Enter email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="share-input border-none"
+              className="share-input"
             />
-            <UserTypeSelector 
+            <UserTypeSelector
               userType={userType}
               setUserType={setUserType}
             />
@@ -89,11 +89,11 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
           <Button type="submit" onClick={shareDocumentHandler} className="gradient-pink flex h-11 items-center gap-1.5 px-5 rounded-lg shadow-md" disabled={loading}>
             {loading ? (
               <>
-                <Image 
-                  src="/assets/icons/loader.svg" 
-                  alt="loader" 
-                  width={16} 
-                  height={16} 
+                <Image
+                  src="/assets/icons/loader.svg"
+                  alt="loader"
+                  width={16}
+                  height={16}
                   className="animate-spin"
                 />
                 <span>Inviting...</span>
@@ -105,7 +105,7 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
         <div className="my-2 space-y-2">
           <ul className="flex flex-col divider-y">
             {collaborators.map((collaborator) => (
-              <Collaborator 
+              <Collaborator
                 key={collaborator.id}
                 roomId={roomId}
                 creatorId={creatorId}

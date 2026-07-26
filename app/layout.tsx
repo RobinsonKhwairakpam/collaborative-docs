@@ -13,15 +13,15 @@ const fontSans = FontSans({
 })
 
 export const metadata: Metadata = {
-  title: 'LiveDocs',
-  description: 'Your go-to collaborative editor',
+  title: 'Docollabs — Collaborative Real-Time Workspace',
+  description: 'Clean, modern real-time collaborative document editor',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider
       appearance={{
-        variables: { 
+        variables: {
           colorPrimary: "#ec4899",
           fontSize: '16px'
         },
