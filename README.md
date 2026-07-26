@@ -1,4 +1,4 @@
-# DocuPink — Real-Time Collaborative Workspace
+# Collanborative Document Editor
 
 A modern, high-performance real-time collaborative document editor featuring live multi-user editing, inline comments, document sharing, permission controls, and notification updates. Built with Next.js, Liveblocks, Lexical Editor, and Clerk Authentication, styled with Tailwind CSS in a clean white and pink theme.
 
@@ -21,10 +21,6 @@ A modern, high-performance real-time collaborative document editor featuring liv
 ### 🔔 Notifications & Activity Feed
 - **Live Notifications**: High-contrast notification bell highlighting unread document shares and mentions.
 - **Activity Stream**: Preview incoming document access invitations and thread activities directly in the app header.
-
-### 🎨 Clean White & Pink Aesthetic
-- **Modern Dashboard UI**: Search filter bar, grid/list view layout toggles, responsive metrics, rounded-lg corners, and shadow elevations.
-- **Smooth Loading States**: Pink animated spinner and status indicators across all API actions for seamless user feedback.
 
 ---
 
