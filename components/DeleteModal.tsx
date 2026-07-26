@@ -38,17 +38,16 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="min-w-9 rounded-xl bg-transparent p-2 transition-all">
+        <Button className="min-w-9 rounded-lg bg-pink-50 hover:bg-pink-100 border border-pink-100 p-2 transition-all shadow-sm">
           <Image
             src="/assets/icons/delete.svg"
             alt="delete"
-            width={20}
-            height={20}
-            className="mt-1"
+            width={18}
+            height={18}
           />
         </Button>
       </DialogTrigger>
-      <DialogContent className="shad-dialog">
+      <DialogContent className="shad-dialog border border-pink-100 bg-white rounded-lg shadow-md">
         <DialogHeader>
           <Image
             src="/assets/icons/delete-modal.svg"
@@ -57,24 +56,36 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
             height={48}
             className="mb-4"
           />
-          <DialogTitle>Delete document</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-slate-800 text-lg font-semibold">Delete document</DialogTitle>
+          <DialogDescription className="text-slate-500 text-sm">
             Are you sure you want to delete this document? This action cannot be
             undone.
           </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter className="mt-5">
-          <DialogClose asChild className="w-full bg-dark-400 text-white">
-            Cancel
+        <DialogFooter className="mt-5 gap-3">
+          <DialogClose asChild className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium border border-slate-200 shadow-sm">
+            <span>Cancel</span>
           </DialogClose>
 
           <Button
             variant="destructive"
             onClick={deleteDocumentHandler}
-            className="gradient-red w-full"
+            disabled={loading}
+            className="gradient-red w-full flex items-center justify-center gap-1.5 rounded-lg shadow-md"
           >
-            {loading ? "Deleting..." : "Delete"}
+            {loading ? (
+              <>
+                <Image 
+                  src="/assets/icons/loader.svg" 
+                  alt="loading" 
+                  width={16} 
+                  height={16} 
+                  className="animate-spin"
+                />
+                <span>Deleting...</span>
+              </>
+            ) : "Delete"}
           </Button>
         </DialogFooter>
       </DialogContent>

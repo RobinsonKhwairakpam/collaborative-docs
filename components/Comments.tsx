@@ -11,8 +11,8 @@ const ThreadWrapper = ({ thread }: ThreadWrapperProps) => {
     <Thread 
       thread={thread}
       data-state={isActive ? 'active' : null}
-      className={cn('comment-thread border', 
-        isActive && '!border-blue-500 shadow-md',
+      className={cn('comment-thread border border-pink-100 rounded-lg shadow-md bg-white', 
+        isActive && '!border-pink-500 shadow-md ring-2 ring-pink-200',
         thread.resolved && 'opacity-40'
       )}
     />

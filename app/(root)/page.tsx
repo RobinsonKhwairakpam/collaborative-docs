@@ -2,7 +2,6 @@ import AddDocumentBtn from '@/components/AddDocumentBtn';
 import { DeleteModal } from '@/components/DeleteModal';
 import Header from '@/components/Header'
 import Notifications from '@/components/Notifications';
-import { Button } from '@/components/ui/button'
 import { getDocuments } from '@/lib/actions/room.actions';
 import { dateConverter } from '@/lib/utils';
 import { SignedIn, UserButton } from '@clerk/nextjs'
@@ -19,7 +18,7 @@ const Home = async () => {
 
   return (
     <main className="home-container">
-      <Header className="sticky left-0 top-0">
+      <Header className="sticky left-0 top-0 z-50">
         <div className="flex items-center gap-2 lg:gap-4">
           <Notifications />
           <SignedIn>
@@ -40,18 +39,18 @@ const Home = async () => {
           <ul className="document-ul">
             {roomDocuments.data.map(({ id, metadata, createdAt }: any) => (
               <li key={id} className="document-list-item">
-                <Link href={`/documents/${id}`} className="flex flex-1 items-center gap-4">
-                  <div className="hidden rounded-md bg-dark-500 p-2 sm:block">
+                <Link href={`/documents/${id}`} className="flex flex-1 items-center gap-4 group">
+                  <div className="hidden rounded-lg bg-pink-50 border border-pink-100 p-2.5 sm:block shadow-sm group-hover:bg-pink-100 transition-colors">
                     <Image 
                       src="/assets/icons/doc.svg"
                       alt="file"
-                      width={40}
-                      height={40}
+                      width={36}
+                      height={36}
                     />
                   </div>
                   <div className="space-y-1">
-                    <p className="line-clamp-1 text-lg">{metadata.title}</p>
-                    <p className="text-sm font-light text-blue-100">Created about {dateConverter(createdAt)}</p>
+                    <p className="line-clamp-1 text-lg font-semibold text-slate-800 group-hover:text-pink-600 transition-colors">{metadata.title}</p>
+                    <p className="text-sm font-normal text-slate-500">Created about {dateConverter(createdAt)}</p>
                   </div>
                 </Link>
                 <DeleteModal roomId={id} />
@@ -61,13 +60,17 @@ const Home = async () => {
         </div>
       ): (
         <div className="document-list-empty">
-          <Image 
-            src="/assets/icons/doc.svg"
-            alt="Document"
-            width={40}
-            height={40}
-            className="mx-auto"
-          />
+          <div className="p-4 rounded-full bg-pink-50 border border-pink-100 shadow-sm">
+            <Image 
+              src="/assets/icons/doc.svg"
+              alt="Document"
+              width={48}
+              height={48}
+              className="mx-auto"
+            />
+          </div>
+
+          <p className="text-slate-600 font-medium text-center">No documents found. Start creating your first project!</p>
 
           <AddDocumentBtn 
             userId={clerkUser.id}

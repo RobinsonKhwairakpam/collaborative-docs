@@ -18,18 +18,18 @@ const Notifications = () => {
 
   return (
     <Popover>
-      <PopoverTrigger className="relative flex size-10 items-center justify-center rounded-lg">
+      <PopoverTrigger className="relative flex size-10 items-center justify-center rounded-lg bg-pink-50 border border-pink-100 hover:bg-pink-100 transition-colors shadow-sm">
         <Image 
           src="/assets/icons/bell.svg"
           alt="inbox"
-          width={24}
-          height={24}
+          width={20}
+          height={20}
         />
         {count > 0 && (
-          <div className="absolute right-2 top-2 z-20 size-2 rounded-full bg-blue-500" />
+          <div className="absolute right-2 top-2 z-20 size-2.5 rounded-full bg-pink-500 ring-2 ring-white" />
         )}
       </PopoverTrigger>
-      <PopoverContent align="end" className="shad-popover">
+      <PopoverContent align="end" className="shad-popover border border-pink-100 bg-white shadow-md rounded-lg p-2">
         <LiveblocksUIConfig 
           overrides={{
             INBOX_NOTIFICATION_TEXT_MENTION: (user: ReactNode) => (
@@ -39,14 +39,14 @@ const Notifications = () => {
         >
           <InboxNotificationList>
             {unreadNotifications.length <= 0 && (
-              <p className="py-2 text-center text-dark-500">No new notifications</p>
+              <p className="py-4 text-center text-slate-500 text-sm font-medium">No new notifications</p>
             )}
 
             {unreadNotifications.length > 0 && unreadNotifications.map((notification) => (
               <InboxNotification 
                 key={notification.id}
                 inboxNotification={notification}
-                className="bg-dark-200 text-white"
+                className="bg-white text-slate-800 hover:bg-pink-50 transition-colors border-b border-pink-50 last:border-b-0 rounded-md p-2"
                 href={`/documents/${notification.roomId}`}
                 showActions={false}
                 kinds={{

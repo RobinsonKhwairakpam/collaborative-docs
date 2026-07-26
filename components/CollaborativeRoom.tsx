@@ -18,7 +18,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
   const [loading, setLoading] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const updateTitleHandler = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if(e.key === 'Enter') {
@@ -76,7 +76,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
                   placeholder="Enter title"
                   onChange={(e) => setDocumentTitle(e.target.value)}
                   onKeyDown={updateTitleHandler}
-                  disable={!editing}
+                  disabled={!editing}
                   className="document-title-input"
                 />
               ) : (
@@ -100,7 +100,12 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
                 <p className="view-only-tag">View only</p>
               )}
 
-              {loading && <p className="text-sm text-gray-400">saving...</p>}
+              {loading && (
+                <span className="flex items-center gap-1.5 text-xs text-pink-600 font-medium bg-pink-50 px-2 py-1 rounded-md border border-pink-100">
+                  <Image src="/assets/icons/loader.svg" alt="loading" width={14} height={14} className="animate-spin" />
+                  saving...
+                </span>
+              )}
             </div>
             <div className="flex w-full flex-1 justify-end gap-2 sm:gap-3">
               <ActiveCollaborators />
