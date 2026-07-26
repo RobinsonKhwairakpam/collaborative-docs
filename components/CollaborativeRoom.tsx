@@ -81,9 +81,15 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
                   className="document-title-input"
                 />
               ) : (
-                <>
+                <div className="flex items-center gap-2">
+                  <Image 
+                    src="/assets/icons/doc.svg" 
+                    alt="document" 
+                    width={26} 
+                    height={26} 
+                  />
                   <p className="document-title">{documentTitle}</p>
-                </>
+                </div>
               )}
 
               {currentUserType === 'editor' && !editing && (

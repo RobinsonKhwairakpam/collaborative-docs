@@ -15,6 +15,9 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: 'Docollabs — Collaborative Real-Time Workspace',
   description: 'Clean, modern real-time collaborative document editor',
+  icons: {
+    icon: '/icon.svg',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
